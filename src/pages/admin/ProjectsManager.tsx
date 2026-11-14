@@ -66,7 +66,7 @@ export default function ProjectsManager() {
     if (!fileName) return;
 
     const { error } = await supabase.storage
-      .from("portfolio")
+      .from("portfolio-images")
       .remove([fileName]);
 
     if (error) {
@@ -80,7 +80,7 @@ export default function ProjectsManager() {
       const fileName = `${Math.random()}.${fileExt}`;
 
       const { error: uploadError } = await supabase.storage
-        .from("portfolio")
+        .from("portfolio-images")
         .upload(fileName, file);
 
       if (uploadError) {
@@ -88,7 +88,7 @@ export default function ProjectsManager() {
       }
 
       const { data } = supabase.storage
-        .from("portfolio")
+        .from("portfolio-images")
         .getPublicUrl(fileName);
 
       return data.publicUrl;
