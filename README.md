@@ -70,6 +70,46 @@ Siga os passos abaixo para rodar o projeto em sua máquina de desenvolvimento:
    ```
    O projeto estará disponível em `http://localhost:5174`.
 
+## 🚀 Deploy na Vercel
+
+Para publicar este projeto na Vercel, siga os passos abaixo:
+
+1. **Suba o projeto para o GitHub**
+   ```bash
+   git add .
+   git commit -m "Prepare project for Vercel deploy"
+   git push origin main
+   ```
+
+2. **Acesse o Vercel**
+   - Vá para https://vercel.com
+   - Faça login com a conta GitHub
+   - Clique em `New Project`
+   - Selecione o repositório do portfolio
+
+3. **Configure o projeto**
+   - Framework: `Vite`
+   - Root Directory: `.`
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+
+4. **Adicione as variáveis de ambiente**
+   No painel da Vercel, em `Settings > Environment Variables`, adicione:
+   ```env
+   VITE_SUPABASE_URL=https://seu-projeto.supabase.co
+   VITE_SUPABASE_ANON_KEY=sua_chave_anonima_do_supabase
+   ```
+
+5. **Deploy**
+   - Clique em `Deploy`
+   - A Vercel irá rodar o build automaticamente
+
+### Observações importantes
+- A rota do painel administrativo usa `BrowserRouter`, então o arquivo `vercel.json` foi adicionado para garantir que todas as rotas voltem para o `index.html`.
+- O arquivo `.env` não deve ser enviado para o GitHub. Use as variáveis no painel da Vercel.
+
+---
+
 ## 🎨 Design System
 
 O projeto utiliza uma paleta de cores monocromática para transmitir sofisticação e foco no conteúdo:
