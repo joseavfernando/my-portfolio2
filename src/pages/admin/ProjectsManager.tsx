@@ -150,13 +150,14 @@ export default function ProjectsManager() {
     }
 
     const projectData = { ...currentProject, image: imageUrl };
+const { id, ...dataToUpdate } = projectData;
 
-    if (currentProject.id) {
-      // Update
-      const { error } = await supabase
-        .from("projects")
-        .update(projectData)
-        .eq("id", currentProject.id);
+if (currentProject.id) {
+  // Update
+  const { error } = await supabase
+    .from("projects")
+    .update(dataToUpdate)
+    .eq("id", currentProject.id);
       if (!error) {
         setIsEditing(false);
         fetchProjects();
