@@ -68,7 +68,7 @@ Siga os passos abaixo para rodar o projeto em sua máquina de desenvolvimento:
    ```bash
    npm run dev
    ```
-   O projeto estará disponível em `http://localhost:5174`.
+   O projeto estará disponível em `http://localhost:5173`.
 
 ## 🚀 Deploy na Vercel
 
